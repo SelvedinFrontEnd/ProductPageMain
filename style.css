@@ -1,0 +1,522 @@
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  /*
+    2. Remove default margin
+  */
+  * {
+    margin: 0;
+  }
+  /*
+    Typographic tweaks!
+    3. Add accessible line-height
+    4. Improve text rendering
+  */
+  body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  /*
+    5. Improve media defaults
+  */
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  /*
+    6. Remove built-in form typography styles
+  */
+  input, button, textarea, select {
+    font: inherit;
+  }
+  /*
+    7. Avoid text overflows
+  */
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+  /*
+    8. Create a root stacking context
+  */
+  #root, #__next {
+    isolation: isolate;
+  }
+
+  @font-face {
+    font-family: "Kumbh Sans";
+    src: url(KumbhSans-VariableFont_YOPQ\,wght.ttf);
+  }
+
+  body {
+    position: relative;
+    font-family: "Kumbh Sans";
+    font-size: 16px;
+  }
+
+  article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .menu-open {
+    cursor: pointer;
+  }
+
+  .menu-close {
+    display: block;
+  }
+
+  .padding {
+    padding-top: 2rem;
+  }
+
+  .menu {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .menu-items {
+    display: none;
+    flex-direction: column;
+    padding-left: 1.5rem;
+    padding-top: 2rem;
+    gap: 1rem;
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    width: 65%;
+    height: 100%;
+    background-color: white;
+    color: black;
+    font-weight: 700;
+    font-size: 20px;
+  }
+
+  .menu-div {
+    width: 70%;
+    height: 100%;
+    position: absolute;
+    z-index: 3;
+  }
+
+  #overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Black color with 50% transparency */
+    display: none; /* Hidden by default */
+    z-index: 1; /* Adjust the z-index to make sure it's above other elements */
+}
+
+   .header {
+    display: flex;
+    align-items: start !important; 
+    gap: 1rem;
+    padding: 1.5rem;
+    background-color: rgb(255, 255, 255);
+  }
+
+  .avatar {
+    width: 24px;
+    height: auto;
+    cursor: pointer;
+  }
+
+  .cart {
+    position: relative;
+    margin-left: auto;
+    cursor: pointer;
+  }
+
+  .cart-number {
+    display: none;
+    position: absolute;
+    right: 3.8rem;
+    top: 1.2rem;
+    width: 16px;
+    height: 13px;
+    background-color: orange;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    border-radius: 2rem;
+  }
+
+  .logo {
+    cursor: pointer;
+  }
+
+  .cart-menu {
+    visibility: hidden;
+    position: absolute;
+    height: 300px;
+    max-width: 500;
+    background-color: white;
+    top: 1rem;
+    left: 1rem;
+    right: 1rem;
+    bottom: 3rem;
+    z-index: 1;
+    border-radius: 0.5rem;
+  }
+
+  .h2 {
+    padding: 1rem;
+    font-size: 16px;
+    font-weight: 700;
+    border-bottom: solid 1px rgb(201, 201, 201);
+  }
+
+  .cart-items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding-top: 3rem;
+  }
+
+  .flex {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .full {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .checkout {
+    width: 100%;
+    margin-top: 1rem;
+    border-radius: 0.5rem;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    gap: 1rem;
+    font-weight: 600;
+    color: white;
+    background-color: orange;
+    cursor: pointer;
+  }
+
+  .remove {
+    cursor: pointer;
+  }
+
+  .gray {
+    color: hsl(219, 9%, 45%); 
+  }
+
+  .dark {
+    color: black;
+    font-weight: 700;
+    padding-left: 0.5rem;
+  }
+
+  .empty-cart {
+    color: hsl(219, 9%, 45%);
+    font-weight: 600;
+  }
+
+  .product-slider {
+    position: relative;
+    max-width: 700px;
+  }
+
+  .circle-left {
+    position: absolute;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    top: 50%;
+    left: 20px;
+  }
+
+  .circle-right {
+    position: absolute;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    top: 50%;
+    right: 20px;
+  }
+
+  .bottom-sec {
+    padding: 1.5rem;
+  }
+
+  .upper-cart {
+    display: none;
+  }
+
+  .orange {
+    color: orange;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .title {
+    font-size: 32px;
+    line-height: 2rem;
+    margin-top: 1rem;
+    color :hsl(220, 13%, 13%);
+  }
+
+  .desc {
+    color: hsl(219, 9%, 45%);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .price-menu {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-top: 1.5rem;
+  }
+
+  .bold {
+    font-size: 28px;
+    font-weight: 700;
+    color :hsl(220, 13%, 13%);
+  }
+
+  .org-background {
+    background-color: rgba(255, 165, 0, 0.2);
+    padding: 0 4px;
+  }
+
+  .price-left {
+    margin-left: auto;
+    font-weight: 500;
+    font-size: 20px;
+    text-decoration: line-through;
+    color: hsl(225, 3%, 76%);
+  }
+
+  .count-menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    font-weight: 700;
+    border-radius: 0.5rem;
+    background-color: rgb(231, 228, 222);
+  }
+
+  .minus {
+    cursor: pointer;
+  }
+
+  .plus {
+    cursor: pointer;
+  }
+
+  .btn {
+    width: 100%;
+    margin-top: 1rem;
+    border-radius: 0.5rem;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    gap: 1rem;
+    font-weight: 600;
+    color: white;
+    background-color: orange;
+    cursor: pointer;
+  }
+
+  .cart {
+    color: white;
+  }
+
+  .small-product {
+    width: 50px;
+    height: auto;
+    border-radius: 0.5rem;
+  }
+
+  .pictures {
+    display: none;
+  }
+  
+  @media (min-width:800px) {
+    article {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      gap: 5rem;
+    }
+
+    .header {
+      position: relative;
+      margin-left: 2rem;
+      margin-right: 2rem;
+      border-bottom: 1px solid rgb(197, 197, 197);
+    }
+
+    .desktop-flex {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .cart-menu {
+      visibility: hidden;
+      position: absolute;
+      height: 300px;
+      max-width: 500px;
+      background-color: white;
+      bottom: 50rem;  
+      z-index: 2;
+      border-radius: 0.5rem;
+    }
+
+    .menu-items {
+      display: flex;
+      flex-direction: row;
+      padding-left: 0;
+      padding-top: 0;
+      gap: 1rem;
+      position: relative;
+      z-index: 2;
+      left: 0;
+      top: 0;
+      width: 65%;
+      height: 100%;
+      color: hsl(219, 9%, 45%);
+      font-weight: 500;
+      font-size: 16px;
+    }
+
+    .padding {
+      padding: 0;
+    }
+
+    .menu-open{
+      display: none;
+    }
+
+    .btn {
+      width: 200px;
+    }
+
+    .count-menu {
+      width: 100px;
+      height: 50px;
+      margin-top: 1rem;
+    }
+
+    .price-left {
+      margin: 0;
+    }
+
+    .text {
+      max-width: 430px;
+      margin: 0;
+    }
+
+    .product-slider {
+      max-width: 400px;
+    }
+
+    .picture {
+      border-radius: 0.5rem;
+      width: 300px;
+      height: auto;
+    }
+
+    .pictures {
+      display: flex;
+      gap: 2rem;
+      width: 50px;
+      margin-top: 2rem;
+    }
+
+    .border {
+      border-radius: 0.5rem;
+      cursor: pointer;
+    }
+
+    .circle-left {
+      display: none;
+    }
+
+    .circle-right {
+      display: none;
+    }
+
+  }
+
+  @media (min-width:1000px) {
+    .header {
+      margin-left: 4rem;
+      margin-right: 4rem;
+    }
+  }
+
+  @media (min-width:1200px) {
+    .header {
+      margin-left: 8rem;
+      margin-right: 8rem;
+    }
+  }
+
+  @media (min-width:1400px) {
+    .header {
+      margin-left: 12rem;
+      margin-right: 12rem;
+    }
+  }
+
+  @media (min-width:1600px) {
+    .header {
+      margin-left: 16rem;
+      margin-right: 16rem;
+    }
+  }
+
+  @media (min-width:1800px) {
+    .header {
+      margin-left: 20rem;
+      margin-right: 20rem;
+    }
+  }
+
+
+
+
+  .attribution {
+    text-align: center;
+  }
